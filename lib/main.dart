@@ -17,6 +17,40 @@ class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Snack bar'),
+        centerTitle: true,
+      ),
+      body: MySnackBar(),
+    );
+  }
+}
+
+class MySnackBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: RaisedButton(
+      child: Text('Show me'),
+      onPressed: () {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+            'hello',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.teal,
+          duration: Duration(microseconds: 1000),
+        ));
+      },
+    ));
+  }
+}
+
+class MyPageWithBuilder extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           title: Text('Snack bar'),
           centerTitle: true,
